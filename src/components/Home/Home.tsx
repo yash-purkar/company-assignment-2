@@ -189,6 +189,7 @@ export const Home = () => {
             <label htmlFor="wellness_program" className="cursor_pointer">
               Wellness Program
             </label>
+            {pricesToShow && <p>$50</p>}
           </div>
           {
             !pricesToShow && <small className="warning_message">Enter Age Range between 18-25 | 26-30</small>

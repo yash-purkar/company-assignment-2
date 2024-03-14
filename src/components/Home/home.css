@@ -19,6 +19,7 @@
   padding: 0.5rem;
   border: none;
   box-shadow: 4px 6px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 0.3rem;
 }
 
 .student_details_container {
@@ -56,6 +57,7 @@ input {
     rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
   padding: 3rem;
   flex: 1;
+  border-radius: 0.3rem;
 }
 
 .insurance_plan_details{
@@ -70,6 +72,7 @@ input {
     rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
   padding: 3rem;
   flex: 1;
+  border-radius: 0.3rem;
 }
 
 input[type='checkbox'] {
