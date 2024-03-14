@@ -1,6 +1,6 @@
 import React, { ChangeEvent } from "react";
 import { Plan } from "../../types";
-
+import "./acrossAssistPlans.css";
 interface AcrossAssistPlansProps {
   selectedAccrossAssistPlans: {
     travelInsurance: boolean;

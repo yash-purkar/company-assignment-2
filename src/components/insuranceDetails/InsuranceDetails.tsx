@@ -1,5 +1,5 @@
 import React from 'react'
-
+import './insuranceDetails.css'
 interface InsuranceDetailsProps {
     foundUniversity:any
 }

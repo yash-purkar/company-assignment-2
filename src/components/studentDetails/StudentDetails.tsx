@@ -1,5 +1,5 @@
 import React, { ChangeEvent } from "react";
-
+import "./studentDetails.css";
 interface StudentDetailsProps {
   studentDetails: {
     name: string;

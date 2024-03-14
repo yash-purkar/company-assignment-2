@@ -22,26 +22,8 @@
   border-radius: 0.3rem;
 }
 
-.student_details_container {
-  display: flex;
-  flex-direction: column;
-  width: fit-content;
-  gap: 1rem;
-  padding: 3rem;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
-    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-  border-radius: 0.3rem;
-}
-
 .heading {
   font-size: 1.1rem;
-}
-
-.student_detail {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  flex-wrap: wrap;
 }
 
 input {
@@ -50,43 +32,6 @@ input {
   border: 1px solid #ccc;
   font-size: 1rem;
   border-radius: 0.2rem;
-}
-
-.insurance_details_container {
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
-    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-  padding: 3rem;
-  flex: 1;
-  border-radius: 0.3rem;
-}
-
-.insurance_plan_details{
-  margin-top: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.across_assist_plans {
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
-    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-  padding: 3rem;
-  flex: 1;
-  border-radius: 0.3rem;
-}
-
-input[type='checkbox'] {
-width: unset;
-cursor: pointer;
-}
-
-.plans_container{
-  margin-top: 1rem;
-}
-
-.across_assist_single_plan {
-  display: flex;
-  gap: 0.5rem;
 }
 
 .warning_message{
