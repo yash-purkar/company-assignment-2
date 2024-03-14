@@ -7,6 +7,7 @@ import { InsuranceDetails } from "../insuranceDetails/InsuranceDetails";
 import { AcrossAssistPlans } from "../acrossAssistPlans/AcrossAssistPlans";
 import { ProgramDropdown } from "../programDropdown/ProgramDropdown";
 import { UniversityDropdown } from "../universityDropdown/UniversityDropdown";
+import { PdfComponent } from "../PdfComponent/PdfComponent";
 
 export const Home = () => {
   const [program, setProgram] = useState("Select Program");
@@ -72,6 +73,7 @@ export const Home = () => {
   };
 
   return (
+    <>
     <div className="home">
       <div className="left_container">
         {/* program dropdown */}
@@ -101,6 +103,10 @@ export const Home = () => {
         handleAcrossAssistPlans={handleAcrossAssistPlans}
         pricesToShow={pricesToShow}
       />
+
     </div>
+      {/* Pdf download */}
+      <PdfComponent/>
+    </>
   );
 };

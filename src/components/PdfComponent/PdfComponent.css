@@ -1,0 +1,19 @@
+.pdf_container {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.print_button {
+  padding: 0.4rem 1rem;
+  border: 1px solid #fe7c0b;
+  background-color: #fe7c0b;
+  border-radius: 0.3rem;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.print_button:hover{
+    background-color: #fff;
+    color: #fe7c0b;
+}
