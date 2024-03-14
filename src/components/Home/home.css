@@ -8,7 +8,13 @@
   margin: auto;
 }
 
-.university_dropdown {
+.left_container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.program_dropdown,.university_dropdown {
   width: 100%;
   padding: 0.5rem;
   border: none;
@@ -27,7 +33,7 @@
 }
 
 .heading {
-  font-size: 1.5rem;
+  font-size: 1.1rem;
 }
 
 .student_detail {
@@ -52,6 +58,13 @@ input {
   flex: 1;
 }
 
+.insurance_plan_details{
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 .across_assist_plans {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
     rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
@@ -73,7 +86,7 @@ cursor: pointer;
   gap: 0.5rem;
 }
 
-.valid_age_message{
+.warning_message{
   display: inline-block;
   color: red;
   margin-top: 1rem;

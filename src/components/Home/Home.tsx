@@ -5,7 +5,7 @@ import "./home.css";
 
 // 1838
 export const Home = () => {
-  const [program,setProgram] = useState('');
+  const [program, setProgram] = useState("Select Program");
   const [selectedUniversity, setSelectedUniversity] =
     useState<string>("Select University");
   const [studentDetails, setStudentDetails] = useState({
@@ -40,23 +40,27 @@ export const Home = () => {
       ? plansForAge26To30
       : null;
 
-      // program change
-      const handleProgramChange = (e:ChangeEvent<HTMLSelectElement>) => {
-        setProgram(e.target.value)
-      }
+  // program change
+  const handleProgramChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    setProgram(e.target.value);
+  };
 
   return (
     <div className="home">
-      <div>
+      <div className="left_container">
         <div>
-        <select
+        <h5 className="heading orange_color">
+            <span className="blue_color">Select</span>{" "}
+            <span className="orange_color">Program</span>{" "}
+          </h5>
+          <select
             name="program"
             id=""
             className="program_dropdown"
             onChange={handleProgramChange}
-            value={selectedUniversity}
+            value={program}
           >
-            <option value="Select University" disabled selected>
+            <option value="Select Program" disabled selected>
               --Select Program--
             </option>
             <option value="STEM">STEM</option>
@@ -140,25 +144,22 @@ export const Home = () => {
             <span className="blue_color">Insurance</span>{" "}
             <span className="orange_color">Details</span>{" "}
           </h5>
-          {foundUniversity && <small>{foundUniversity?.university_name}</small>}
+          {foundUniversity && <small>({foundUniversity?.university_name})</small>}
         </div>
         <>
           {foundUniversity ? (
-            <>
+            <div className="insurance_plan_details">
               <p>
                 Plan Required as per university:{" "}
-                {foundUniversity?.university_required_plan ?? "Not Available"}
+                <span className="orange_color bold">{foundUniversity?.university_required_plan ?? "Not Available"}</span>
               </p>
               <p>
                 University Insurance Cost -{" "}
-                {foundUniversity?.university_insurance_cost ?? "Not Available"}
+                <span className="orange_color bold">{foundUniversity?.university_insurance_cost ?? "Not Available"}</span>
               </p>
-            </>
+            </div>
           ) : (
-            <p>
-              <small className="blue_color">Select</small>{" "}
-              <small className="orange_color">University</small>
-            </p>
+            <small className="warning_message">Select university to see Insurance Details</small>
           )}
         </>
       </div>
@@ -189,9 +190,9 @@ export const Home = () => {
               Wellness Program
             </label>
           </div>
-          <small className="valid_age_message">
-            {!pricesToShow && <p>Enter Age Range between 18-25 | 26-30</p>}
-          </small>
+          {
+            !pricesToShow && <small className="warning_message">Enter Age Range between 18-25 | 26-30</small>
+          }
         </div>
       </div>
     </div>
