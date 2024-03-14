@@ -1,14 +1,15 @@
 .navigation {
-    padding: 1.5rem;
-    box-shadow: 4px 6px 8px rgba(0,0,0,0.1);
-    
-    display: flex;
-    justify-content: space-between;
+  padding: 1.5rem;
+  box-shadow: 4px 6px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 4rem;
+
+  display: flex;
+  justify-content: space-between;
 }
-.navlinks{
-    display: flex;
-    gap: 1rem;
+.navlinks {
+  display: flex;
+  gap: 1rem;
 }
 .navlink {
-    text-decoration: none;
+  text-decoration: none;
 }

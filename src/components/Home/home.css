@@ -1,0 +1,80 @@
+.home {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+
+  margin: auto;
+}
+
+.university_dropdown {
+  width: 100%;
+  padding: 0.5rem;
+  border: none;
+  box-shadow: 4px 6px 8px rgba(0, 0, 0, 0.1);
+}
+
+.student_details_container {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  gap: 1rem;
+  padding: 3rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  border-radius: 0.3rem;
+}
+
+.heading {
+  font-size: 1.5rem;
+}
+
+.student_detail {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+input {
+  width: 12rem;
+  padding: 0.3rem;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  border-radius: 0.2rem;
+}
+
+.insurance_details_container {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  padding: 3rem;
+  flex: 1;
+}
+
+.across_assist_plans {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  padding: 3rem;
+  flex: 1;
+}
+
+input[type='checkbox'] {
+width: unset;
+cursor: pointer;
+}
+
+.plans_container{
+  margin-top: 1rem;
+}
+
+.across_assist_single_plan {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.valid_age_message{
+  display: inline-block;
+  color: red;
+  margin-top: 1rem;
+}

@@ -3,4 +3,13 @@
   margin: 0;
   box-sizing: border-box;
   list-style-type: none;
+  letter-spacing: 1px;
+}
+
+.blue_color{
+  color:#1363df
+}
+
+.orange_color {
+  color: #fe7c0b;
 }
