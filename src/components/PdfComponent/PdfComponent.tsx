@@ -3,10 +3,34 @@ import "./PdfComponent";
 import logo from "../../assets/nav_logo.png";
 import "./pdfComponent.css";
 import jsPDF from "jspdf";
-import pdf_second_page from '../../assets/pdf_second_page.png'
+import pdf_second_page from "../../assets/pdf_second_page.png";
+import { DetailsToPrintInPdf } from "../../types";
+import { toast } from "react-toastify";
 
-export const PdfComponent = () => {
+export const PdfComponent: React.FC<DetailsToPrintInPdf> = ({
+  InsuranceDetails,
+  program,
+  selectedAccrossAssistPlans,
+  selectedUniversity,
+  studentDetails,
+}) => {
+  // It handles print pdf
   const handlePrintDetails = () => {
+    // If details are not filled
+    if (
+      !(
+        studentDetails.age &&
+        studentDetails.dob &&
+        studentDetails.location &&
+        studentDetails.name &&
+        selectedUniversity &&
+        program
+      )
+    ) {
+      toast.warning("Please fill all the details.");
+      return;
+    }
+
     const pdf = new jsPDF("p", "mm", "a4");
 
     // adding company logo in pdf.
@@ -34,32 +58,56 @@ export const PdfComponent = () => {
 
     // Student details
     addText(`Details of Student: `, 10);
-    addText(`Student Name : ${"Student name"}`, 20);
-    addText(`D.O.B : ${"D.O.B"}`, 20);
-    addText(`Age : ${"Age"}`, 20);
-    addText(`Location  : ${"Location "}`, 20);
+    addText(`Student Name : ${studentDetails.name}`, 20);
+    addText(`D.O.B : ${studentDetails.dob}`, 20);
+    addText(`Age : ${studentDetails.age}`, 20);
+    addText(`Location  : ${studentDetails.location}`, 20);
 
     // Adding line break
     addText("\n");
 
     // Insurance details
     addText(`Insurance Details : `, 10);
-    addText(`Plan Required as per university  : ${"Plan"}`, 20);
     addText(
-      `University Insurance Cost   : ${"University Insurance Cost "}`,
+      `Plan Required as per university  : ${
+        InsuranceDetails?.university_required_plan ?? "NA"
+      }`,
       20
     );
-    addText(`Details Actual Cost when Claim Hits   : ${"none"}`, 20);
+    addText(
+      `University Insurance Cost   : ${
+        InsuranceDetails?.university_insurance_cost ?? "NA"
+      }`,
+      20
+    );
+    addText(
+      `Details Actual Cost when Claim Hits   : ${InsuranceDetails?.highOOPCosts}`,
+      20
+    );
 
     // Adding line break
     addText("\n");
 
     // Across Assist plans
     addText(`Across Assist Plan : `, 10);
-    addText(`Health Insurance : ${"Selected"}`, 20);
-    addText(`Travel Insurance : ${"Not Selected"}`, 20);
-    addText(`Wellness Program : ${"Selected"}`, 20);
-
+    addText(
+      `Health Insurance : ${
+        selectedAccrossAssistPlans.healthInsurance ? "Selected" : "Not Selected"
+      }`,
+      20
+    );
+    addText(
+      `Travel Insurance : ${
+        selectedAccrossAssistPlans.travelInsurance ? "Selected" : "Not Selected"
+      }`,
+      20
+    );
+    addText(
+      `Wellness Program : ${
+        selectedAccrossAssistPlans.wellnessProgram ? "Selected" : "Not Selected"
+      }`,
+      20
+    );
 
     pdf.addPage();
 
@@ -68,7 +116,14 @@ export const PdfComponent = () => {
     const pageSize = pdf.internal.pageSize;
     const pageWidth = pageSize.width;
     const pageHeight = pageSize.height;
-    pdf.addImage(pdf_second_page, "PNG", 10, 10, pageHeight - 100,pageWidth - 100);
+    pdf.addImage(
+      pdf_second_page,
+      "PNG",
+      10,
+      10,
+      pageHeight - 100,
+      pageWidth - 100
+    );
 
     // save the pdf to a blob (Binary Large OBject)
     const pdfBlob = pdf.output("blob");
@@ -85,9 +140,18 @@ export const PdfComponent = () => {
     // pdf.save("Across_Assist");
   };
 
+  // let isButtonDisabled = true;
+  // if (
+  //   studentDetails.age &&
+  //   studentDetails.dob &&
+  //   studentDetails.location &&
+  //   studentDetails.name && selectedUniversity && program
+  // )
+  //   isButtonDisabled = false;
+
   return (
     <div className="pdf_container">
-      <button onClick={handlePrintDetails} className="print_button">
+      <button onClick={handlePrintDetails} className={"print_button"}>
         Print
       </button>
     </div>

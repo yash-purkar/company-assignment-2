@@ -1,23 +1,25 @@
-
 .across_assist_plans {
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
-      rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-    padding: 3rem;
-    flex: 1;
-    border-radius: 0.3rem;
-  }
-  
-  input[type='checkbox'] {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  padding: 3rem;
+  flex: 1;
+  border-radius: 0.3rem;
+}
+
+input[type="checkbox"] {
   width: unset;
   cursor: pointer;
-  }
-  
-  .plans_container{
-    margin-top: 1rem;
-  }
-  
-  .across_assist_single_plan {
-    display: flex;
-    gap: 0.5rem;
-  }
-  
+}
+
+.plans_container {
+  margin-top: 1rem;
+}
+
+.across_assist_single_plan {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.total_price{
+  margin-top: 1rem;
+}

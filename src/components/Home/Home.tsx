@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useMemo, useState } from "react";
 import { data, plansForAge18To25, plansForAge26To30 } from "../../Data/data";
-import { Data, Plan } from "../../types";
+import { Data, DetailsToPrintInPdf, Plan } from "../../types";
 import "./home.css";
 import { StudentDetails } from "../studentDetails/StudentDetails";
 import { InsuranceDetails } from "../insuranceDetails/InsuranceDetails";
@@ -72,6 +72,15 @@ export const Home = () => {
     setProgram(e.target.value);
   };
 
+  // Collecting values to show in pdf
+  const detailsToPrintInPDF:DetailsToPrintInPdf = {
+    program,
+    selectedUniversity,
+    studentDetails,
+    InsuranceDetails:foundUniversity,
+    selectedAccrossAssistPlans
+  }
+
   return (
     <>
     <div className="home">
@@ -102,11 +111,12 @@ export const Home = () => {
         selectedAccrossAssistPlans={selectedAccrossAssistPlans}
         handleAcrossAssistPlans={handleAcrossAssistPlans}
         pricesToShow={pricesToShow}
+        studentAge={studentDetails.age}
       />
 
     </div>
       {/* Pdf download */}
-      <PdfComponent/>
+      <PdfComponent {...detailsToPrintInPDF}/>
     </>
   );
 };
