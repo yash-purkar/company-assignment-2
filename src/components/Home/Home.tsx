@@ -73,50 +73,49 @@ export const Home = () => {
   };
 
   // Collecting values to show in pdf
-  const detailsToPrintInPDF:DetailsToPrintInPdf = {
+  const detailsToPrintInPDF: DetailsToPrintInPdf = {
     program,
     selectedUniversity,
     studentDetails,
-    InsuranceDetails:foundUniversity,
-    selectedAccrossAssistPlans
-  }
+    InsuranceDetails: foundUniversity,
+    selectedAccrossAssistPlans,
+  };
 
   return (
     <>
-    <div className="home">
-      <div className="left_container">
-        {/* program dropdown */}
-        <ProgramDropdown
-          handleProgramChange={handleProgramChange}
-          program={program}
-        />
-        {/* university select pdropdown */}
-        <UniversityDropdown
-          universityNames={universityNames}
-          handleUniversitySelect={handleUniversitySelect}
-          selectedUniversity={selectedUniversity}
-        />
-        {/* student details */}
-        <StudentDetails
-          studentDetails={studentDetails}
-          handleStudentDetailsChange={handleStudentDetailsChange}
+      <div className="home">
+        <div className="left_container">
+          {/* program dropdown */}
+          <ProgramDropdown
+            handleProgramChange={handleProgramChange}
+            program={program}
+          />
+          {/* university select pdropdown */}
+          <UniversityDropdown
+            universityNames={universityNames}
+            handleUniversitySelect={handleUniversitySelect}
+            selectedUniversity={selectedUniversity}
+          />
+          {/* student details */}
+          <StudentDetails
+            studentDetails={studentDetails}
+            handleStudentDetailsChange={handleStudentDetailsChange}
+          />
+        </div>
+
+        {/* insurance details */}
+        <InsuranceDetails foundUniversity={foundUniversity} />
+
+        {/* across assist plans */}
+        <AcrossAssistPlans
+          selectedAccrossAssistPlans={selectedAccrossAssistPlans}
+          handleAcrossAssistPlans={handleAcrossAssistPlans}
+          pricesToShow={pricesToShow}
+          studentAge={studentDetails.age}
         />
       </div>
-
-      {/* insurance details */}
-      <InsuranceDetails foundUniversity={foundUniversity} />
-
-      {/* across assist plans */}
-      <AcrossAssistPlans
-        selectedAccrossAssistPlans={selectedAccrossAssistPlans}
-        handleAcrossAssistPlans={handleAcrossAssistPlans}
-        pricesToShow={pricesToShow}
-        studentAge={studentDetails.age}
-      />
-
-    </div>
       {/* Pdf download */}
-      <PdfComponent {...detailsToPrintInPDF}/>
+      <PdfComponent {...detailsToPrintInPDF} />
     </>
   );
 };

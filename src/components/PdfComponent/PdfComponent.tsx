@@ -1,7 +1,6 @@
 import React from "react";
-import "./PdfComponent";
 import logo from "../../assets/nav_logo.png";
-import "./pdfComponent.css";
+import "./PdfComponent.css";
 import jsPDF from "jspdf";
 import pdf_second_page from "../../assets/pdf_second_page.png";
 import { DetailsToPrintInPdf } from "../../types";
@@ -50,8 +49,8 @@ export const PdfComponent: React.FC<DetailsToPrintInPdf> = ({
     };
 
     // Adding data in pdf
-    addText(`Program: ${"Program name"}`, 10);
-    addText(`University Name: ${"Program name"}`, 10);
+    addText(`Program: ${program}`, 10);
+    addText(`University Name: ${selectedUniversity}`, 10);
 
     // Adding line break
     addText("\n");
