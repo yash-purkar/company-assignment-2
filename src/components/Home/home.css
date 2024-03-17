@@ -1,0 +1,41 @@
+.home {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+
+  margin: auto;
+}
+
+.left_container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.program_dropdown,.university_dropdown {
+  width: 100%;
+  padding: 0.5rem;
+  border: none;
+  box-shadow: 4px 6px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 0.3rem;
+}
+
+.heading {
+  font-size: 1.1rem;
+}
+
+input {
+  width: 12rem;
+  padding: 0.3rem;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  border-radius: 0.2rem;
+}
+
+.warning_message{
+  display: inline-block;
+  color: red;
+  margin-top: 1rem;
+}
