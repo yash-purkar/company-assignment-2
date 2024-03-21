@@ -487,10 +487,10 @@ export const data: Data[] = [
 
 export const plansForAge18To25: Plan = {
   travelInsurance: 45,
-  healthInsurance: 60,
+  wellnessProgram: 60,
 };
 
 export const plansForAge26To30: Plan = {
   travelInsurance: 65,
-  healthInsurance: 85,
+  wellnessProgram: 85,
 };

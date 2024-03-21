@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useMemo, useState } from "react";
+import React, { ChangeEvent, useEffect, useMemo, useState } from "react";
 import { data, plansForAge18To25, plansForAge26To30 } from "../../Data/data";
 import { Data, DetailsToPrintInPdf, Plan } from "../../types";
 import "./home.css";
@@ -80,6 +80,18 @@ export const Home = () => {
     InsuranceDetails: foundUniversity,
     selectedAccrossAssistPlans,
   };
+
+  useEffect(() => {
+    if (studentDetails.dob) {
+      // Calculating Age of student based on the DOB
+      const studentDobYear = new Date(studentDetails.dob).getFullYear();
+      const currentYear = new Date().getFullYear();
+      setStudentDetails((prev) => ({
+        ...prev,
+        age: (currentYear - studentDobYear).toString(),
+      }));
+    }
+  }, [studentDetails.dob]);
 
   return (
     <>
