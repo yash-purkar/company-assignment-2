@@ -8,8 +8,8 @@ export interface Data {
 
 export interface Plan {
   travelInsurance: number;
-  healthInsurance: number;
-  wellnessProgram?: number;
+  wellnessProgram: number;
+  healthInsurance?: number;
 }
 
 export interface DetailsToPrintInPdf {

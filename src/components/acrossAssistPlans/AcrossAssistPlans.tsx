@@ -22,12 +22,17 @@ export const AcrossAssistPlans: React.FC<AcrossAssistPlansProps> = ({
   // It calculates the sum of selected plans.
   selectedAccrossAssistPlans.travelInsurance &&
     (totalAmount += pricesToShow?.travelInsurance ?? 0);
-  selectedAccrossAssistPlans.healthInsurance &&
-    (totalAmount += pricesToShow?.healthInsurance ?? 0);
-  selectedAccrossAssistPlans.wellnessProgram && (totalAmount += 50);
+  selectedAccrossAssistPlans.wellnessProgram &&
+    (totalAmount += pricesToShow?.wellnessProgram ?? 0);
+  selectedAccrossAssistPlans.healthInsurance && (totalAmount += 50);
 
-  // disable checkboxes if age is not selected.
-  // const isDisabled = StudentDetails
+  // disable checkboxes if age is not there or not in between 18-25 | 26-30.
+  let isDisabled = true;
+  if (
+    (Number(studentAge) >= 18 && Number(studentAge) <= 25) ||
+    (Number(studentAge) >= 26 && Number(studentAge) <= 30)
+  )
+    isDisabled = false;
 
   return (
     <div className="across_assist_plans">
@@ -44,12 +49,12 @@ export const AcrossAssistPlans: React.FC<AcrossAssistPlansProps> = ({
             name="healthInsurance"
             id="health_insurance"
             onChange={handleAcrossAssistPlans}
-            disabled={!studentAge}
+            disabled={isDisabled}
           />
           <label htmlFor="health_insurance" className="cursor_pointer">
             Health Insurance
           </label>
-          {pricesToShow && <p>${pricesToShow?.healthInsurance ?? "NA"}</p>}
+          {pricesToShow && <p>$50</p>}
         </div>
         <div className="across_assist_single_plan">
           <input
@@ -58,7 +63,7 @@ export const AcrossAssistPlans: React.FC<AcrossAssistPlansProps> = ({
             checked={selectedAccrossAssistPlans.travelInsurance}
             id="travel_insurance"
             onChange={handleAcrossAssistPlans}
-            disabled={!studentAge}
+            disabled={isDisabled}
           />
           <label htmlFor="travel_insurance" className="cursor_pointer">
             Travel Insurance
@@ -72,16 +77,16 @@ export const AcrossAssistPlans: React.FC<AcrossAssistPlansProps> = ({
             id="wellness_program"
             onChange={handleAcrossAssistPlans}
             checked={selectedAccrossAssistPlans.wellnessProgram}
-            disabled={!studentAge}
+            disabled={isDisabled}
           />
           <label htmlFor="wellness_program" className="cursor_pointer">
             Wellness Program
           </label>
-          {pricesToShow && <p>$50</p>}
+          {pricesToShow && <p>${pricesToShow?.wellnessProgram ?? "NA"}</p>}
         </div>
         {!pricesToShow && (
           <small className="warning_message">
-            Enter Age Range between 18-25 | 26-30
+            Age Range should be in between 18-25 | 26-30
           </small>
         )}
         {(selectedAccrossAssistPlans.healthInsurance ||

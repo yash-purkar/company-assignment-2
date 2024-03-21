@@ -14,6 +14,7 @@ export const StudentDetails: React.FC<StudentDetailsProps> = ({
   studentDetails,
   handleStudentDetailsChange,
 }) => {
+
   return (
     <div className="student_details_container">
       <h5 className="heading orange_color">
@@ -48,6 +49,7 @@ export const StudentDetails: React.FC<StudentDetailsProps> = ({
           id="age"
           onChange={handleStudentDetailsChange}
           value={studentDetails?.age}
+          disabled
         />
       </div>
       <div className="student_detail">
